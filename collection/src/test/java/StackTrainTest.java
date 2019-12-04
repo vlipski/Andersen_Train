@@ -30,8 +30,6 @@ public class StackTrainTest {
     @Test
     public void addTest() {
         stackTrainIsNull.add(1);
-        assertEquals(stackTrainIsNull.size(), 1);
-        assertFalse(stackTrainIsNull.isEmpty());
         stackTrainIsNull.add(1);
         stackTrainIsNull.add(1);
         stackTrainIsNull.add(1);
@@ -53,8 +51,6 @@ public class StackTrainTest {
 
     @Test
     public void removeTest(){
-        assertEquals(stackTrain.size(), 4);
-        assertTrue(stackTrain.contains(5));
         stackTrain.remove();
         assertEquals(stackTrain.size(), 3);
         assertFalse(stackTrain.contains(5));
@@ -63,7 +59,5 @@ public class StackTrainTest {
     @Test
     public void getTest() {
         assertEquals(stackTrain.get(), 5);
-        stackTrain.remove();
-        assertEquals(stackTrain.get(), 6);
     }
 }
