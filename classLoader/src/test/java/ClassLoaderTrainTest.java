@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
+import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,8 +13,13 @@ public class ClassLoaderTrainTest {
 
     @Before
     public void setUp() throws Exception {
+        Properties properties = System.getProperties();
+        String separator = properties.getProperty("file.separator");
+        String localDir = System.getProperty("user.dir");
         ClassLoaderTrain loader = new ClassLoaderTrain();
-        clazz = loader.findClass("F:\\train\\algorithms\\target\\classes\\BinarySearch.class");
+        clazz = loader.findClass(localDir.replace(
+                "classLoader",
+                "algorithms" + separator + "target" + separator + "classes" +separator +"BinarySearch.class"));
     }
 
     @Test
